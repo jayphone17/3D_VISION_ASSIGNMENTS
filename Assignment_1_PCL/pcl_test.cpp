@@ -9,37 +9,47 @@ int main(int argc, char **argv) {
     std::cout << "Test PCL !!!" << std::endl;
     
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr point_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+    
     uint8_t r(255), g(15), b(15);
+
     for (float z(-1.0); z <= 1.0; z += 0.05)
     {
       for (float angle(0.0); angle <= 360.0; angle += 5.0)
       {
-	pcl::PointXYZRGB point;
-	point.x = 0.5 * cosf (pcl::deg2rad(angle));
-	point.y = sinf (pcl::deg2rad(angle));
-	point.z = z;
-	uint32_t rgb = (static_cast<uint32_t>(r) << 16 |
-		static_cast<uint32_t>(g) << 8 | static_cast<uint32_t>(b));
-	point.rgb = *reinterpret_cast<float*>(&rgb);
-	point_cloud_ptr->points.push_back (point);
+	       pcl::PointXYZRGB point;
+	       point.x = 0.5 * cosf (pcl::deg2rad(angle));
+	       point.y = sinf (pcl::deg2rad(angle));
+	       point.z = z;
+	       uint32_t rgb = (static_cast<uint32_t>(r) << 16 |
+		        static_cast<uint32_t>(g) << 8 | static_cast<uint32_t>(b));
+	       point.rgb = *reinterpret_cast<float*>(&rgb);
+	       point_cloud_ptr->points.push_back (point);
       }
       if (z < 0.0)
       {
-	r -= 12;
-	g += 12;
+	       r -= 12;
+	       g += 12;
       }
       else
       {
-	g -= 12;
-	b += 12;
+	       g -= 12;
+	       b += 12;
       }
     }
     point_cloud_ptr->width = (int) point_cloud_ptr->points.size ();
     point_cloud_ptr->height = 1;
+    // pcl::visualization::CloudViewer viewer ("test");
+    // viewer.showCloud(point_cloud_ptr);
+    // pcl 提供了两种点云可视化方案。一种是 CloudViewer，另一种是 PCLVisualizer。
+    // 关于第一种，虽然官方给的介绍是可以让你简单快捷地实现可视化的基本功能，
+    // 但实际上这个东西在 macOS 下面是没办法用的。
+
+    //改成：
     
-    pcl::visualization::CloudViewer viewer ("test");
-    viewer.showCloud(point_cloud_ptr);
-    while (!viewer.wasStopped()){ };
+    pcl::visualization::PCLVisualizer viewer("test");
+    viewer.addPointCloud(point_cloud_ptr);
+    //while (!viewer.wasStopped()){ };
+    viewer.spin(); 
     return 0;
 }
 

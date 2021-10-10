@@ -1,19 +1,24 @@
 cmake_minimum_required(VERSION 3.2)
 #cmake 要求的最低版本
 
+set(Qt5_DIR "/Users/jayphone/Qt/5.15.0/clang_64/lib/cmake/Qt5")
+
 project(pcl_test)
 #指定项目名称
 
 #set(Boost_LIBRARY_DIR /usr/local/Cellar/boost/1.76.0/lib)
+
 #设置boost包路径。
 
 find_package(PCL 1.7 REQUIRED) 
+
 #找到PCL包
 
 list (REMOVE_ITEM PCL_LIBRARIES "vtkproj4")
-#set(PCL_DIR /usr/lib/x86_64-linux-gnu/cmake/pcl)
+
 
 include_directories(${PCL_INCLUDE_DIRS})
+
 #宏，让cmake知道我们包含的外部头文件。
 #其中PCL_INCLUDE_DIRS包含了我们需要的内容。
 
