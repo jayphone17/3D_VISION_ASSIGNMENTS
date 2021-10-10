@@ -1,0 +1,5 @@
+/Users/jayphone/Desktop/3D_VISION_ASSIGNMENTS/Assignment_1_CGAL  /build/CMakeFiles/demo_10.dir
+/Users/jayphone/Desktop/3D_VISION_ASSIGNMENTS/Assignment_1_CGAL  /build/CMakeFiles/rebuild_cache.dir
+/Users/jayphone/Desktop/3D_VISION_ASSIGNMENTS/Assignment_1_CGAL  /build/CMakeFiles/edit_cache.dir
+/Users/jayphone/Desktop/3D_VISION_ASSIGNMENTS/Assignment_1_CGAL  /build/CMakeFiles/CGAL_Qt5_moc_and_resources.dir
+/Users/jayphone/Desktop/3D_VISION_ASSIGNMENTS/Assignment_1_CGAL  /build/CMakeFiles/CGAL_Qt5_moc_and_resources_autogen.dir
