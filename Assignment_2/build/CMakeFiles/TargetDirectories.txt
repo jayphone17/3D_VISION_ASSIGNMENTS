@@ -1,0 +1,3 @@
+/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/build/CMakeFiles/rebuild_cache.dir
+/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/build/CMakeFiles/edit_cache.dir
+/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/build/CMakeFiles/RegionGrowing.dir
