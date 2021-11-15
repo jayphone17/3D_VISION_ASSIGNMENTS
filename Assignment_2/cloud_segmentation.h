@@ -25,6 +25,7 @@ class Cloud_segmentation
 	struct HPoint {
 		Point_d position;
 		Vector_3 normal;
+		//法向量
 		int primitive_index;
 	};
 
@@ -152,21 +153,23 @@ bool Compute_Knearest_neighbors(int K)
 
 
 bool region_growing(float epsilon, int Nmin){
-			
+
 
 		cout<<"Region growing ";
 
 
 		//Initialization structures
 		plane_point_index.clear();
-		for(int i=0; i<(int)HPS.size();i++) HPS[i].primitive_index=-1;
+		for(int i=0; i<(int)HPS.size();i++) 
+			HPS[i].primitive_index=-1;
+
 		int class_index=-1;
 	
 
 		// for each point, if not inliers yet..
 		for(int i=0; i<(int)HPS.size();i++){
 
-			if(HPS[i].primitive_index==-1){
+			if(HPS[i].primitive_index == -1){
 
 				//update the index of primitive
 				class_index++;
@@ -178,8 +181,10 @@ bool region_growing(float epsilon, int Nmin){
 				Plane_3 optimal_plane(pt_seed,normal_seed);
 
 				//initialization containers
-				std::vector < int > index_container; index_container.push_back(i);
-				std::vector < int > index_container_former_ring; index_container_former_ring.push_back(i);
+				std::vector < int > index_container; 
+				index_container.push_back(i);
+				std::vector < int > index_container_former_ring; 
+				index_container_former_ring.push_back(i);
 				std::list < int > index_container_current_ring;
 
 
@@ -192,14 +197,38 @@ bool region_growing(float epsilon, int Nmin){
 
 					// TO START FROM HERE (YOU)
 					//-----------------------
-					
- 
+		            // for (int k = 0 ; k < index_container_former_ring.size() ; k++)
+		            // {
 
+		            //     int cluster_index = index_container_former_ring[k];
+
+		            //     for (int j = 0; j < xxxx ; ++ j)
+		            //     {
+		            //        int cluster_index_2 = xxxx ;
+
+		            //        if(xxxx)
+		            //        {
+		            //           propagation = true;
+		            //           index_container_current_ring.push_back(cluster_index_2);
+
+		            //           HPS[i].primitive_index = -1
+
+		            //           if(max_area < clusters[cluster_index_2].area)
+		            //           {
+		            //                max_area = clusters[cluster_index_2].area;
+		            //                index_max_area = cluster_index_2;
+		            //           }
+		            //         } 
+		            //     }
+		            // }
+		            //draft,unsolved
 					//-----------------------
 
 					// update containers
 					index_container_former_ring.clear();
-					for(std::list < int >::iterator it = index_container_current_ring.begin(); it != index_container_current_ring.end(); ++it){
+					for(std::list < int >::iterator it = index_container_current_ring.begin(); 
+						it != index_container_current_ring.end(); ++it)
+					{
 						index_container_former_ring.push_back(*it);
 						index_container.push_back(*it);
 					}
@@ -209,11 +238,13 @@ bool region_growing(float epsilon, int Nmin){
 				
 
 				//Test the number of inliers -> reject if inferior to Nmin
-				if(index_container.size()>=Nmin) plane_point_index.push_back(index_container);
+				if(index_container.size()>=Nmin) 
+					plane_point_index.push_back(index_container);
 				else{ 
 					class_index--;
 					HPS[i].primitive_index=-1;
-					for(int k=0;k<(int)index_container.size();k++) HPS[index_container[k]].primitive_index=-1; 
+					for(int k=0;k<(int)index_container.size();k++) 
+						HPS[index_container[k]].primitive_index=-1; 
 				}
 			} 
 		}
