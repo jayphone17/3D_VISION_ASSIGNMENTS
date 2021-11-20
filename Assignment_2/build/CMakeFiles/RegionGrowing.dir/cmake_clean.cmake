@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o"
-  "CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o.d"
+  "CMakeFiles/RegionGrowing.dir/main.cpp.o"
+  "CMakeFiles/RegionGrowing.dir/main.cpp.o.d"
   "RegionGrowing"
   "RegionGrowing.pdb"
 )

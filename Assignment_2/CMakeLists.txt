@@ -13,5 +13,5 @@ find_package(Boost REQUIRED COMPONENTS system filesystem)
 include_directories(${Boost_INCLUDE_DIRS})
 link_directories(RegionGrowing ${Boost_LIBRARY_DIRS})
 
-add_executable(RegionGrowing RegionGrowing.cpp)
+add_executable(RegionGrowing main.cpp)
 target_link_libraries(RegionGrowing ${CGAL_LIBS} ${Boost_LIBRARIES})

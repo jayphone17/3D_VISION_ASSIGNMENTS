@@ -129,29 +129,29 @@ RegionGrowing/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RegionGrowing.dir/build.make CMakeFiles/RegionGrowing.dir/build
 .PHONY : RegionGrowing/fast
 
-RegionGrowing.o: RegionGrowing.cpp.o
-.PHONY : RegionGrowing.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-RegionGrowing.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RegionGrowing.dir/build.make CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o
-.PHONY : RegionGrowing.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RegionGrowing.dir/build.make CMakeFiles/RegionGrowing.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-RegionGrowing.i: RegionGrowing.cpp.i
-.PHONY : RegionGrowing.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-RegionGrowing.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RegionGrowing.dir/build.make CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.i
-.PHONY : RegionGrowing.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RegionGrowing.dir/build.make CMakeFiles/RegionGrowing.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-RegionGrowing.s: RegionGrowing.cpp.s
-.PHONY : RegionGrowing.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-RegionGrowing.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RegionGrowing.dir/build.make CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.s
-.PHONY : RegionGrowing.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RegionGrowing.dir/build.make CMakeFiles/RegionGrowing.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... RegionGrowing"
-	@echo "... RegionGrowing.o"
-	@echo "... RegionGrowing.i"
-	@echo "... RegionGrowing.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

@@ -194,9 +194,7 @@ bool region_growing(float epsilon, int Nmin){
 				do{
 
 					propagation=false;
-
-					// TO START FROM HERE (YOU)
-					//-----------------------
+					
 		            // for (int k = 0 ; k < index_container_former_ring.size() ; k++)
 		            // {
 
@@ -222,6 +220,29 @@ bool region_growing(float epsilon, int Nmin){
 		            //     }
 		            // }
 		            //draft,unsolved
+
+
+					// TO START FROM HERE (YOU)
+					//-----------------------
+					
+ 					for (std::vector<int>::iterator it = index_container_former_ring.begin(); it != index_container_former_ring.end() ; ++it)
+     				{
+      					vector<int> neighbors = spherical_neighborhood[*it];
+     					for (auto curr_select_point : neighbors)
+      					{
+      						if (HPS[curr_select_point].primitive_index != -1) 
+      							continue;
+       						if (HPS[curr_select_point].normal * normal_seed >= epsilon)
+       						{
+        						HPS[curr_select_point].primitive_index = class_index;
+        						index_container_current_ring.push_back(curr_select_point);
+      						}
+     					}
+					}
+					
+					if (!index_container_current_ring.empty())
+						propagation = true;
+
 					//-----------------------
 
 					// update containers

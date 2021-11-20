@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/RegionGrowing.cpp" "CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o" "gcc" "CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o.d"
+  "/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/main.cpp" "CMakeFiles/RegionGrowing.dir/main.cpp.o" "gcc" "CMakeFiles/RegionGrowing.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.

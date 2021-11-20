@@ -69,28 +69,28 @@ include CMakeFiles/RegionGrowing.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/RegionGrowing.dir/flags.make
 
-CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o: CMakeFiles/RegionGrowing.dir/flags.make
-CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o: ../RegionGrowing.cpp
-CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o: CMakeFiles/RegionGrowing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o -MF CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o.d -o CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o -c /Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/RegionGrowing.cpp
+CMakeFiles/RegionGrowing.dir/main.cpp.o: CMakeFiles/RegionGrowing.dir/flags.make
+CMakeFiles/RegionGrowing.dir/main.cpp.o: ../main.cpp
+CMakeFiles/RegionGrowing.dir/main.cpp.o: CMakeFiles/RegionGrowing.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/RegionGrowing.dir/main.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/RegionGrowing.dir/main.cpp.o -MF CMakeFiles/RegionGrowing.dir/main.cpp.o.d -o CMakeFiles/RegionGrowing.dir/main.cpp.o -c /Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/main.cpp
 
-CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/RegionGrowing.cpp > CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.i
+CMakeFiles/RegionGrowing.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RegionGrowing.dir/main.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/main.cpp > CMakeFiles/RegionGrowing.dir/main.cpp.i
 
-CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/RegionGrowing.cpp -o CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.s
+CMakeFiles/RegionGrowing.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RegionGrowing.dir/main.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/main.cpp -o CMakeFiles/RegionGrowing.dir/main.cpp.s
 
 # Object files for target RegionGrowing
 RegionGrowing_OBJECTS = \
-"CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o"
+"CMakeFiles/RegionGrowing.dir/main.cpp.o"
 
 # External object files for target RegionGrowing
 RegionGrowing_EXTERNAL_OBJECTS =
 
-RegionGrowing: CMakeFiles/RegionGrowing.dir/RegionGrowing.cpp.o
+RegionGrowing: CMakeFiles/RegionGrowing.dir/main.cpp.o
 RegionGrowing: CMakeFiles/RegionGrowing.dir/build.make
 RegionGrowing: /usr/local/lib/libboost_system-mt.dylib
 RegionGrowing: /usr/local/lib/libboost_filesystem-mt.dylib
