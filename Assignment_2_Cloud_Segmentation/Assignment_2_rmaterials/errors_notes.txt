@@ -1,0 +1,53 @@
+本次作业在MacOs、CGAL 5.3环境下缺少的包：
+
+（一般用Homebrew安装的CGAL的话默认是5.3）
+
+print_wavefront.h
+File_writer_wavefront.h
+File_writer_wavefront_impl.h
+generic_print_polyhedron.h
+
+上述的包添加在：usr/local/Cellar/cgal/5.3/include/CGAL/IO 里面！！！！
+
+但是编译成功后出现：
+
+[100%] Linking CXX executable RegionGrowing
+ld: warning: directory not found for option '-LRegionGrowing'
+[100%] Built target RegionGrowing
+(base) jayphone@LinJiefengdeMacBook-Pro-3 build % ./RegionGrowing
+
+zsh: segmentation fault  ./RegionGrowing
+
+
+主要有以下warning信息：
+
+
+In file included from /Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/RegionGrowing.cpp:8:
+In file included from /Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/cloud_segmentation.h:6:
+/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/Visualization_Tools.h:276:32: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                        char *namo_inliers_colored= "Results_inliers.ply";
+                                                    ^
+/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/Visualization_Tools.h:279:27: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                        char *namo_alphashape= "Results_alpha_shapes.ply";
+                                               ^
+/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/Visualization_Tools.h:276:32: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                        char *namo_inliers_colored= "Results_inliers.ply";
+                                                    ^
+/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/RegionGrowing.cpp:67:35: note: in instantiation of function template specialization 'save_envelops<Cloud_segmentation>' requested here
+        if(C.plane_point_index.size()>0) save_envelops(C);
+                                         ^
+In file included from /Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/RegionGrowing.cpp:8:
+In file included from /Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/cloud_segmentation.h:6:
+/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_2/Visualization_Tools.h:279:27: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+                        char *namo_alphashape= "Results_alpha_shapes.ply";
+
+
+Segmentation fault (core dumped)多为内存不当操作造成。
+空指针、野指针的读写操作，数组越界访问，破坏常量等。
+对每个指针声明后进行初始化为NULL是避免这个问题的好办法。排除此问题的最好办法则是调试。
+
+本次的错误是空指针！！！！
+
+在make编译后运行main需要输入模型文件参数。
+
+然后输入epsilon以及minimal number of inliers
