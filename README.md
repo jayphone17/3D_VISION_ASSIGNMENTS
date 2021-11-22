@@ -23,3 +23,12 @@ Some Cmake projects during first year of postgraduate
 
 <img src = "./Assignment_2/result_pics/333.jpg" align = "middle" style = "zoom:30%;" />
 
+
+
+## Assignment_2 Analysis:
+
+<img src = "./Assignment_2/result_pics/444.jpg" align = "middle" style = "zoom:30%;" />
+
+<img src = "./Assignment_2/result_pics/555.jpg" align = "middle" style = "zoom:30%;" />
+
+<img src = "./Assignment_2/result_pics/666.jpg" align = "middle" style = "zoom:30%;" />
