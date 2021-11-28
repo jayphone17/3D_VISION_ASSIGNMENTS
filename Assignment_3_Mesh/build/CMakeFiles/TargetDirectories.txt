@@ -1,0 +1,3 @@
+/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_3_Mesh/build/CMakeFiles/rebuild_cache.dir
+/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_3_Mesh/build/CMakeFiles/edit_cache.dir
+/Users/jayphone/desktop/3D_VISION_ASSIGNMENTS/Assignment_3_Mesh/build/CMakeFiles/Shortest_path_on_mesh.dir

@@ -1,0 +1,1 @@
+/usr/bin/g++  -std=c++14 -O3 -DNDEBUG -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Shortest_path_on_mesh.dir/main.cpp.o -o Shortest_path_on_mesh  /usr/local/lib/libgmpxx.dylib /usr/local/lib/libmpfr.dylib /usr/local/lib/libgmp.dylib 

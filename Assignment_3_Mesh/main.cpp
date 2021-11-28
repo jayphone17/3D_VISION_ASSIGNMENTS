@@ -28,6 +28,8 @@ typedef Kernel::Vector_3                 Vector_3;
 #define RAD2DEG		180.0/M_PI
 #define DEG2RAD		M_PI/180.0
 
+#define INF 0xfffffff 
+
 void Dijkstra(const int& s, const int& num_nodes, const std::vector<std::vector<double>>& edge_weights,
       std::vector<int>& flag, std::vector<double>& dis, std::vector<int>& prev);
 
@@ -399,8 +401,48 @@ void Dijkstra(const int& s, const int& num_nodes, const std::vector<std::vector<
     std::vector<int>& flag, std::vector<double>& dis, std::vector<int>& prev) {
   	// TO START FROM HERE (YOU)
 	//-----------------------
+	int i,j,k;
+	//初始化所有节点
+	flag[0] = {0};
+	//第一个节点已经访问
+	flag[s] = 1;
+	//初始化源点到其他点的距离
+	for(i = 1; i<= num_nodes; i++)
+	{
+		dis[i] = edge_weights[s][i];
+		if(dis[i] == INF || dis[i] == 0)
+		{
+			prev[i] = 0;
+		}
+		else
+		{
+			prev[i] = s;
+		}
+	}
+	int min;
+	for (i = 1; i<= num_nodes; i++)
+	{
+		min = INF;
+		for (j=1; j <= num_nodes; j++)
+		{
+			if(!flag[j] && dis[j] < min)
+			{
+				min = dis[j];
+				k = j;
+			}
+		}
 
+		flag[k] = 1;
 
+		for (j = 1; j <= num_nodes; j++)
+		{
+			if (dis[j] > dis[k] + edge_weights[k][i])
+			{
+				dis[j] = dis[k] + edge_weights[k][j];
+				prev[j] = k;
+			}
+		}
+	}
 
 	//-----------------------
   return;
