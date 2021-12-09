@@ -406,13 +406,14 @@ void Dijkstra(const int& s, const int& num_nodes, const std::vector<std::vector<
 	//-----------------------
 	int i;
 	int j;
+	int k;
 	double min;
-	double temp;
+	// double temp;
 	//初始化
 	for (i = 0 ; i < num_nodes ; i++)
 	{
 		//初始化源点到i点的距离
-		dis.push_back(edge_weights[s][i])
+		dis.push_back(edge_weights[s][i]);
 		//初始化所有结点未访问
 		flag.push_back(0);
 		//初始化前驱
@@ -429,20 +430,20 @@ void Dijkstra(const int& s, const int& num_nodes, const std::vector<std::vector<
 			if(!flag[j] && dis[j] < min)
 			{
 				min = dis[j];
-				temp = j;
+				k = j;
 			}
 		}
 		//顶点k就是最短路径结点
-		flag[temp] = 1;
+		flag[k] = 1;
 		// 更新最短路径
 		// 更新前驱顶点
         // 更新"未获取最短路径的顶点的最短路径和前驱顶点"。
 		for (j = 0 ; j < num_nodes ; j++)
 		{
-			if(dis[j] > dis[temp] + edge_weights[temp][j])
+			if(dis[j] > dis[k] + edge_weights[k][j])
 			{
-				dis[j] = dis[temp] + edge_weights[temp][j];
-				prev[j] = temp;
+				dis[j] = dis[k] + edge_weights[k][j];
+				prev[j] = k;
 			}
 		}
 	}
