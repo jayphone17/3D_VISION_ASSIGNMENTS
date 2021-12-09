@@ -3,7 +3,6 @@
 #include <CGAL/IO/Polyhedron_iostream.h>
 #include <CGAL/draw_polyhedron.h>
 #include <fstream>
-
 #include <map>
 #include <vector>
 #include <limits>
@@ -24,11 +23,9 @@ typedef Kernel::Vector_3                 Vector_3;
 
 #define PARAM_OFSTREAM_TEXTE std::ios::out
 #define OFSTREAM_TEXTE(nomvar, nomfic) std::ofstream nomvar (nomfic, PARAM_OFSTREAM_TEXTE) ; nomvar.setf(std::ios::fixed);
-
 #define RAD2DEG		180.0/M_PI
 #define DEG2RAD		M_PI/180.0
-
-#define INF 0xfffffff 
+#define INF 0x3f3f3f3f
 
 void Dijkstra(const int& s, const int& num_nodes, const std::vector<std::vector<double>>& edge_weights,
       std::vector<int>& flag, std::vector<double>& dis, std::vector<int>& prev);
@@ -399,53 +396,58 @@ int main(int argc, char* argv[])
 
 void Dijkstra(const int& s, const int& num_nodes, const std::vector<std::vector<double>>& edge_weights,
     std::vector<int>& flag, std::vector<double>& dis, std::vector<int>& prev) {
+	//s				起点坐标
+	//num_nodes		结点个数
+	//dege_weights	边的权重,是二维数组，每一个元素都是vector<double>类型，用来存储每个结点之间的距离
+	//flag			是否已经访问标记
+	//dis			距离数组
+	//prev			前驱顶点数组，表示起点s到第i个节点的最短路径遍历的所有定点中，位于i的<之前>的那个顶点。		
   	// TO START FROM HERE (YOU)
 	//-----------------------
-	int i,j,k;
-	//初始化所有节点
-	flag[0] = {0};
-	//第一个节点已经访问
-	flag[s] = 1;
-	//初始化源点到其他点的距离
-	for(i = 1; i<= num_nodes; i++)
+	int i;
+	int j;
+	double min;
+	double temp;
+	//初始化
+	for (i = 0 ; i < num_nodes ; i++)
 	{
-		dis[i] = edge_weights[s][i];
-		if(dis[i] == INF || dis[i] == 0)
-		{
-			prev[i] = 0;
-		}
-		else
-		{
-			prev[i] = s;
-		}
+		//初始化源点到i点的距离
+		dis.push_back(edge_weights[s][i])
+		//初始化所有结点未访问
+		flag.push_back(0);
+		//初始化前驱
+		prev.push_back(s);
 	}
-	int min;
-	for (i = 1; i<= num_nodes; i++)
+	//访问第一个结点
+	flag[s] = 1;
+	for (i = 0 ; i < num_nodes-1 ; i++)
 	{
 		min = INF;
-		for (j=1; j <= num_nodes; j++)
+		for (j=0 ; j < num_nodes ; j++)
 		{
+			//找到最短路径结点
 			if(!flag[j] && dis[j] < min)
 			{
 				min = dis[j];
-				k = j;
+				temp = j;
 			}
 		}
-
-		flag[k] = 1;
-
-		for (j = 1; j <= num_nodes; j++)
+		//顶点k就是最短路径结点
+		flag[temp] = 1;
+		// 更新最短路径
+		// 更新前驱顶点
+        // 更新"未获取最短路径的顶点的最短路径和前驱顶点"。
+		for (j = 0 ; j < num_nodes ; j++)
 		{
-			if (dis[j] > dis[k] + edge_weights[k][i])
+			if(dis[j] > dis[temp] + edge_weights[temp][j])
 			{
-				dis[j] = dis[k] + edge_weights[k][j];
-				prev[j] = k;
+				dis[j] = dis[temp] + edge_weights[temp][j];
+				prev[j] = temp;
 			}
 		}
 	}
-
 	//-----------------------
-  return;
+	return;
 }
 
 void convert_edge_to_cylinder(std::string& filename, const std::vector<int>& vertices_on_the_path, std::map<int, Point_3>& map_index_point) {
